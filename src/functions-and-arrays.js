@@ -18,13 +18,11 @@ let longest = ""
 for (let i = 0; i < words.length; i++) {
   if (longest.length < words[i].length) {
     longest = words[i]
-  } else if (words.length = 0) {
+  } }
+  if (words.length === 0) {
     return null
-  } else if (words[i].indexOf(" ")) {
-
   }
 return longest
-}
 }
 
 
@@ -101,7 +99,32 @@ function averageWordLength(wordsArr) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+let mixArr = [1, 2, 3, "4", "5", "a", "b", "c", "d", "e", true, false]
+
+function avg(mixArr) {
+  let average = 0
+  let sum = 0
+  let numArr = []
+  for (let i = 0; i < mixArr.length; i++) {
+  
+    
+    /* if (typeof mixArr[i] == "number") {
+      numArr.push(mixArr[i])
+    } else if (typeof mixArr[i] == "string") {
+      numArr.push(mixArr[i].length)
+      sum += numArr[i]
+    }
+  
+    for (let i = 0; i < numArr.length; i++) {
+      sum += numArr[i];
+      average = sum / numArr.length;
+    } */
+  }
+    if (mixArr.length === 0) {
+      return null
+    }
+return average
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
