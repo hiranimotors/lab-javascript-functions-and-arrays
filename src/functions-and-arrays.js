@@ -141,8 +141,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  /* let firstIndex = wordsUnique.indexOf()
+  let lastIndex = wordsUnique.lastIndexOf() */
+  let repeat = []
 
+  for (let i=0; i < wordsUnique.length; i++) {
+    if (wordsUnique.indexOf(wordsUnique[i]) !== wordsUnique.lastIndexOf(wordsUnique[i])) {
+        repeat.push(wordsUnique[i])
+      return repeat
+      
+    } else if (wordsUnique.indexOf(wordsUnique[i]) !== wordsUnique.lastIndexOf(wordsUnique[i])) { // --> don't know if we can use the same condition twice on the same loop
+      wordsUnique.splice(i, 1) // --> the idea was to access the index of repeated value, and take it off the array, and in the end, return the new array without dupllcates
+      return wordsUnique
+    }
+    else {return wordsUnique}
+  }
+  if (wordsUnique.length === 0) {
+    return null
+  }
+}
+
+
+/*
+duplicate = true 
+duplicate removed with slice
+return new array without duplicates
+
+*/
 
 
 // Iteration #6: Find elements
