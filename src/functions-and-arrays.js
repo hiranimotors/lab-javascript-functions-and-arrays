@@ -154,12 +154,14 @@ function uniquifyArray(wordsUnique) {
     } else if (wordsUnique.indexOf(wordsUnique[i]) !== wordsUnique.lastIndexOf(wordsUnique[i])) { // --> don't know if we can use the same condition twice on the same loop
       wordsUnique.splice(i, 1) // --> the idea was to access the index of repeated value, and take it off the array, and in the end, return the new array without dupllcates
       return wordsUnique
-    }
+      
+    } 
     else {return wordsUnique}
   }
   if (wordsUnique.length === 0) {
     return null
   }
+  
 }
 
 
@@ -174,9 +176,15 @@ return new array without duplicates
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsFind, word) {
+  
+  for (let i=0; i < wordsFind.length; i++) {
+    if (wordsFind.includes(word) == true) {
+      return true } 
+      else {return false}
+  }
+  if (wordsFind.includes(word) == 0) {return null}
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -193,10 +201,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
-
+function howManyTimes(wordsCount, candidate) {
+  
+  let check = 0
+  for (word of wordsCount) {
+    if (word == candidate) {
+      check++
+    }
+  }
+  return check 
+}
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -221,10 +235,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
 
 
 
+for (let i=0; i < matrix.length; i++) {
+  for (let j=0; j< matrix[i].length; j++) {
+
+let product = 1
+
+if (product <= (matrix[i][j])*(matrix[i][j+1])*(matrix[i][j+2])*(matrix[i][j+3])) { 
+  product = (matrix[i][j])*(matrix[i][j+1])*(matrix[i][j+2])*(matrix[i][j+3])
+  return product
+
+} else if (product <= (matrix[i][j])*(matrix[i+1][j])*(matrix[i+2][j])*(matrix[i+3][j])) {
+  product = (matrix[i][j])*(matrix[i+1][j])*(matrix[i+2][j])*(matrix[i+3][j])
+  return product
+}
+}
+return product
+}
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
