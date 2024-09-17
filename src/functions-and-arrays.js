@@ -18,13 +18,11 @@ let longest = ""
 for (let i = 0; i < words.length; i++) {
   if (longest.length < words[i].length) {
     longest = words[i]
-  } else if (words.length = 0) {
+  } }
+  if (words.length === 0) {
     return null
-  } else if (words[i].indexOf(" ")) {
-
   }
 return longest
-}
 }
 
 
@@ -101,7 +99,32 @@ function averageWordLength(wordsArr) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+let mixArr = [1, 2, 3, "4", "5", "a", "b", "c", "d", "e", true, false]
+
+function avg(mixArr) {
+  let average = 0
+  let sum = 0
+  let numArr = []
+  for (let i = 0; i < mixArr.length; i++) {
+  
+    
+    /* if (typeof mixArr[i] == "number") {
+      numArr.push(mixArr[i])
+    } else if (typeof mixArr[i] == "string") {
+      numArr.push(mixArr[i].length)
+      sum += numArr[i]
+    }
+  
+    for (let i = 0; i < numArr.length; i++) {
+      sum += numArr[i];
+      average = sum / numArr.length;
+    } */
+  }
+    if (mixArr.length === 0) {
+      return null
+    }
+return average
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -118,16 +141,50 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  /* let firstIndex = wordsUnique.indexOf()
+  let lastIndex = wordsUnique.lastIndexOf() */
+  let repeat = []
 
+  for (let i=0; i < wordsUnique.length; i++) {
+    if (wordsUnique.indexOf(wordsUnique[i]) !== wordsUnique.lastIndexOf(wordsUnique[i])) {
+        repeat.push(wordsUnique[i])
+      return repeat
+      
+    } else if (wordsUnique.indexOf(wordsUnique[i]) !== wordsUnique.lastIndexOf(wordsUnique[i])) { // --> don't know if we can use the same condition twice on the same loop
+      wordsUnique.splice(i, 1) // --> the idea was to access the index of repeated value, and take it off the array, and in the end, return the new array without dupllcates
+      return wordsUnique
+      
+    } 
+    else {return wordsUnique}
+  }
+  if (wordsUnique.length === 0) {
+    return null
+  }
+  
+}
+
+
+/*
+duplicate = true 
+duplicate removed with slice
+return new array without duplicates
+
+*/
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsFind, word) {
+  
+  for (let i=0; i < wordsFind.length; i++) {
+    if (wordsFind.includes(word) == true) {
+      return true } 
+      else {return false}
+  }
+  if (wordsFind.includes(word) == 0) {return null}
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -144,10 +201,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
-
+function howManyTimes(wordsCount, candidate) {
+  
+  let check = 0
+  for (word of wordsCount) {
+    if (word == candidate) {
+      check++
+    }
+  }
+  return check 
+}
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -172,10 +235,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
 
 
 
+for (let i=0; i < matrix.length; i++) {
+  for (let j=0; j< matrix[i].length; j++) {
+
+let product = 1
+
+if (product <= (matrix[i][j])*(matrix[i][j+1])*(matrix[i][j+2])*(matrix[i][j+3])) { 
+  product = (matrix[i][j])*(matrix[i][j+1])*(matrix[i][j+2])*(matrix[i][j+3])
+  return product
+
+} else if (product <= (matrix[i][j])*(matrix[i+1][j])*(matrix[i+2][j])*(matrix[i+3][j])) {
+  product = (matrix[i][j])*(matrix[i+1][j])*(matrix[i+2][j])*(matrix[i+3][j])
+  return product
+}
+}
+return product
+}
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
